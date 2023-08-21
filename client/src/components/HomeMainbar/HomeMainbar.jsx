@@ -10,34 +10,56 @@ const HomeMainbar = () => {
     const navigate = useNavigate()
 
     var questionsList = [{ 
-        id: 1,
-        votes: 5,
+        _id: 1,
+        upVotes: 3,
+        downVotes: 2,
         noOfAnswers: 2,
-        questionTitle: "First question",
-        questionBody: "Question description",
-        questionTags: ["java", "node js", "react js", "mongo db", "express js"],
-        userPosted: "Sonu",
+        questionTitle: "Question 1",
+        questionBody: "Question Desc",
+        questionTags: ["java", "node js", "react js"],
+        userPosted: "sonu",
+        userId: 1,
         askedOn: "Aug 19",
-
+        answer: [{
+            answerBody: "Answer",
+            userAnswered: 'sonu',
+            answeredOn: "Aug 19",
+            userId: 2,
+        }]
     },{ 
-        id: 2,
-        votes: 6,
-        noOfAnswers: 0,
-        questionTitle: "Second question",
-        questionBody: "Question description",
-        questionTags: ["ML", "python"],
-        userPosted: "Kumar",
-        askedOn: "Aug 20",
+        _id: 2,
+        upVotes: 3,
+        downVotes: 2,
+        noOfAnswers: 2,
+        questionTitle: "Question 2",
+        questionBody: "Question Desc",
+        questionTags: ["java", "node js", "react js"],
+        userPosted: "sonu",
+        userId: 1,
+        askedOn: "Aug 19",
+        answer: [{
+            answerBody: "Answer",
+            userAnswered: 'sonu',
+            answeredOn: "Aug 19",
+            userId: 2,
+        }]
     },{ 
-        id: 3,
-        votes: 4,
-        noOfAnswers: 0,
-        questionTitle: "Third question",
-        questionBody: "Question description",
-        questionTags: ["python"],
-        userPosted: "Shaw",
-        askedOn: "Aug 20",
-
+        _id: 3,
+        upVotes: 3,
+        downVotes: 2,
+        noOfAnswers: 2,
+        questionTitle: "Question 3",
+        questionBody: "Question Desc",
+        questionTags: ["java", "node js", "react js"],
+        userPosted: "sonu",
+        userId: 1,
+        askedOn: "Aug 19",
+        answer: [{
+            answerBody: "Answer",
+            userAnswered: 'sonu',
+            answeredOn: "Aug 19",
+            userId: 2,
+        }]
     }]
 
     const checkAuth = () => {
