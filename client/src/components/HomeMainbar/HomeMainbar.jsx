@@ -1,5 +1,6 @@
 import React from 'react'
-import { useLocation, useNavigate} from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useSelector} from 'react-redux'
 import './HomeMainbar.css'
 import QuestionList from './QuestionList'
 
@@ -9,58 +10,61 @@ const HomeMainbar = () => {
     const user = 1
     const navigate = useNavigate()
 
-    var questionsList = [{ 
-        _id: 1,
-        upVotes: 3,
-        downVotes: 2,
-        noOfAnswers: 2,
-        questionTitle: "Question 1",
-        questionBody: "Question Desc",
-        questionTags: ["java", "node js", "react js"],
-        userPosted: "sonu",
-        userId: 1,
-        askedOn: "Aug 19",
-        answer: [{
-            answerBody: "Answer",
-            userAnswered: 'sonu',
-            answeredOn: "Aug 19",
-            userId: 2,
-        }]
-    },{ 
-        _id: 2,
-        upVotes: 3,
-        downVotes: 2,
-        noOfAnswers: 2,
-        questionTitle: "Question 2",
-        questionBody: "Question Desc",
-        questionTags: ["java", "node js", "react js"],
-        userPosted: "sonu",
-        userId: 1,
-        askedOn: "Aug 19",
-        answer: [{
-            answerBody: "Answer",
-            userAnswered: 'sonu',
-            answeredOn: "Aug 19",
-            userId: 2,
-        }]
-    },{ 
-        _id: 3,
-        upVotes: 3,
-        downVotes: 2,
-        noOfAnswers: 2,
-        questionTitle: "Question 3",
-        questionBody: "Question Desc",
-        questionTags: ["java", "node js", "react js"],
-        userPosted: "sonu",
-        userId: 1,
-        askedOn: "Aug 19",
-        answer: [{
-            answerBody: "Answer",
-            userAnswered: 'sonu',
-            answeredOn: "Aug 19",
-            userId: 2,
-        }]
-    }]
+    const questionsList = useSelector(state => state.questionsReducer)
+
+
+    // var questionsList = [{ 
+    //     _id: 1,
+    //     upVotes: 3,
+    //     downVotes: 2,
+    //     noOfAnswers: 2,
+    //     questionTitle: "Question 1",
+    //     questionBody: "Question Desc",
+    //     questionTags: ["java", "node js", "react js"],
+    //     userPosted: "sonu",
+    //     userId: 1,
+    //     askedOn: "Aug 19",
+    //     answer: [{
+    //         answerBody: "Answer",
+    //         userAnswered: 'sonu',
+    //         answeredOn: "Aug 19",
+    //         userId: 2,
+    //     }]
+    // },{ 
+    //     _id: 2,
+    //     upVotes: 3,
+    //     downVotes: 2,
+    //     noOfAnswers: 2,
+    //     questionTitle: "Question 2",
+    //     questionBody: "Question Desc",
+    //     questionTags: ["java", "node js", "react js"],
+    //     userPosted: "sonu",
+    //     userId: 1,
+    //     askedOn: "Aug 19",
+    //     answer: [{
+    //         answerBody: "Answer",
+    //         userAnswered: 'sonu',
+    //         answeredOn: "Aug 19",
+    //         userId: 2,
+    //     }]
+    // },{ 
+    //     _id: 3,
+    //     upVotes: 3,
+    //     downVotes: 2,
+    //     noOfAnswers: 2,
+    //     questionTitle: "Question 3",
+    //     questionBody: "Question Desc",
+    //     questionTags: ["java", "node js", "react js"],
+    //     userPosted: "sonu",
+    //     userId: 1,
+    //     askedOn: "Aug 19",
+    //     answer: [{
+    //         answerBody: "Answer",
+    //         userAnswered: 'sonu',
+    //         answeredOn: "Aug 19",
+    //         userId: 2,
+    //     }]
+    // }]
 
     const checkAuth = () => {
       if(user === null){
@@ -84,8 +88,8 @@ const HomeMainbar = () => {
                     questionsList.data === null ?
                     <h1>Loading...</h1> :
                     <>
-                        <p>{ questionsList.length } questions</p>
-                        <QuestionList questionsList={questionsList} />
+                        <p>{ questionsList.data.length } questions</p>
+                        <QuestionList questionsList={questionsList.data} />
                     </>
                 }
             </div>
