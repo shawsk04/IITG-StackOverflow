@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import { useParams, Link, useNavigate} from 'react-router-dom'
 import { useSelector, useDispatch} from 'react-redux'
+import moment from 'moment'
 
 import upvote from '../../assets/sort-up.svg'
 import downvote from '../../assets/sort-down.svg'
@@ -115,12 +116,12 @@ const QuestionsDetails = () => {
                                             </div>
                                             <div className="question-actions-user">
                                                 <div>
-                                                    <button type='button'>Share</button>
+                                                    {/* <button type='button'>Share</button> */}
                                                     <button type='button'>Delete</button>
                                                         
                                                 </div>
                                                 <div>
-                                                    <p>asked {question.askedOn}</p>
+                                                    <p>asked {moment(question.askedOn).fromNow()}</p>
                                                     <Link to={`/Users/${question.userId}`} className='user-link' style={{color:'#0086d8'}}>
                                                         <Avatar backgroundColor="orange" px='8px' py='5px' borderRadius="4px">{question.userPosted.charAt(0).toUpperCase()}</Avatar>
                                                         <div>
