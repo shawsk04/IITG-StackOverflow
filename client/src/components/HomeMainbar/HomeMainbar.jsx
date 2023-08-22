@@ -13,59 +13,6 @@ const HomeMainbar = () => {
     const questionsList = useSelector(state => state.questionsReducer)
 
 
-    // var questionsList = [{ 
-    //     _id: 1,
-    //     upVotes: 3,
-    //     downVotes: 2,
-    //     noOfAnswers: 2,
-    //     questionTitle: "Question 1",
-    //     questionBody: "Question Desc",
-    //     questionTags: ["java", "node js", "react js"],
-    //     userPosted: "sonu",
-    //     userId: 1,
-    //     askedOn: "Aug 19",
-    //     answer: [{
-    //         answerBody: "Answer",
-    //         userAnswered: 'sonu',
-    //         answeredOn: "Aug 19",
-    //         userId: 2,
-    //     }]
-    // },{ 
-    //     _id: 2,
-    //     upVotes: 3,
-    //     downVotes: 2,
-    //     noOfAnswers: 2,
-    //     questionTitle: "Question 2",
-    //     questionBody: "Question Desc",
-    //     questionTags: ["java", "node js", "react js"],
-    //     userPosted: "sonu",
-    //     userId: 1,
-    //     askedOn: "Aug 19",
-    //     answer: [{
-    //         answerBody: "Answer",
-    //         userAnswered: 'sonu',
-    //         answeredOn: "Aug 19",
-    //         userId: 2,
-    //     }]
-    // },{ 
-    //     _id: 3,
-    //     upVotes: 3,
-    //     downVotes: 2,
-    //     noOfAnswers: 2,
-    //     questionTitle: "Question 3",
-    //     questionBody: "Question Desc",
-    //     questionTags: ["java", "node js", "react js"],
-    //     userPosted: "sonu",
-    //     userId: 1,
-    //     askedOn: "Aug 19",
-    //     answer: [{
-    //         answerBody: "Answer",
-    //         userAnswered: 'sonu',
-    //         answeredOn: "Aug 19",
-    //         userId: 2,
-    //     }]
-    // }]
-
     const checkAuth = () => {
       if(user === null){
           alert("Login or Sign up first to ask a Question")
