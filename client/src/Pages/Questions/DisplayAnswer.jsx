@@ -1,11 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import moment from 'moment'
+import { Link, useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Avatar from '../../components/Avatar/Avatar'
+import { deleteAnswer } from '../../actions/question'
 
 const DisplayAnswer = ({question}) => {
-    
+
+    const User = useSelector((state) => (state.currentUserReducer))
+    const { id } = useParams()
+    const dispatch = useDispatch()
+    const handleDelete = (answerId, noOfAnswers) => {
+        dispatch(deleteAnswer(id, answerId, noOfAnswers - 1))
+    }
+
     return (
         <div>
             {
@@ -15,7 +24,11 @@ const DisplayAnswer = ({question}) => {
                         <div className="question-actions-user">
                             <div>
                                 {/* <button type="button">Share</button> */}
-                                <button type='button'>Delete</button>
+                                {
+                                    User?.result?._id === ans?.userId && (
+                                        <button type='button' onClick={() => handleDelete(ans._id, question.noOfAnswers )}>Delete</button>
+                                    )
+                                }
                                     
                             </div>
                             <div>

@@ -8,7 +8,7 @@ import downvote from '../../assets/sort-down.svg'
 import './Questions.css'
 import Avatar from '../../components/Avatar/Avatar'
 import DisplayAnswer from './DisplayAnswer'
-import { postAnswer } from '../../actions/question'
+import { postAnswer, deleteQuestion } from '../../actions/question'
 
 
 const QuestionsDetails = () => {
@@ -30,9 +30,13 @@ const QuestionsDetails = () => {
             if(Answer === ''){
                 alert('Enter an answer before submitting')
             } else{
-                dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name }))
+                dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name, userId: User?.result._id }))
             }
         }
+    }
+
+    const handleDelete = () => {
+        dispatch(deleteQuestion(id, Navigate))
     }
 
     return (
@@ -64,7 +68,11 @@ const QuestionsDetails = () => {
                                             <div className="question-actions-user">
                                                 <div>
                                                     {/* <button type='button'>Share</button> */}
-                                                    <button type='button'>Delete</button>
+                                                    {
+                                                        User?.result?._id === question?.userId && (
+                                                            <button type='button' onClick={handleDelete}>Delete</button>
+                                                        )
+                                                    }
                                                         
                                                 </div>
                                                 <div>
