@@ -23,16 +23,21 @@ const Auth = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(!email && !password){
-            alert('Enter email and password')
-        }
+        
         if(isSignup){
             if(!name){
-                alert("Enter a name to continue")
+                alert("Enter a name to continue!")
             }
-            dispatch(signup({ name, email, password }, navigate))
-        }else{
-            dispatch(login({ email, password }, navigate))
+            if(!email || !password){
+                alert('Enter email and password!')
+            }
+            else dispatch(signup({ name, email, password }, navigate))
+        }
+        else{
+            if(!email || !password){
+                alert('Enter email and password!')
+            }
+            else dispatch(login({ email, password }, navigate))
         }
     }
 
@@ -57,10 +62,8 @@ const Auth = () => {
                     <label htmlFor="password">
                         <div style={{display:"flex", justifyContent:"space-between"}}>
                             <h4>Password</h4>
-                            {/* { !isSignup && <p style={{ color: "#007ac6", fontSize:'13px'}}>forgot password?</p> } */}
                         </div>
                         <input type="password" name='password' id='password' onChange={(e) => {setPassword(e.target.value)}} />
-                        {/* { isSignup && <p style={{ color: "#666767", fontSize:"13px"}}>Passwords must contain at least eight<br />characters, including at least 1 letter and 1<br /> number.</p> } */}
                     </label>
 
                     <button type='submit' className='auth-btn'>{ isSignup ? 'Sign up': 'Log in'}</button>
