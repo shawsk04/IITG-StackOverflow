@@ -24,13 +24,15 @@ const QuestionsDetails = () => {
     const handlePostAns = (e, answerLength) =>{
         e.preventDefault()
         if(User === null){
-            alert('Login or Signup to answer a question')
+            alert('Login or signup to answer question')
             Navigate('/Auth')
         }else{
             if(Answer === ''){
-                alert('Enter an answer before submitting')
+                alert('Answer field cannot be empty')
             } else{
                 dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name, userId: User?.result._id }))
+                document.getElementById('answer-text').value = '';
+                setAnswer('');
             }
         }
     }
@@ -40,11 +42,17 @@ const QuestionsDetails = () => {
     }
 
     const handleUpVote = () => {
-        dispatch(voteQuestion(id, 'upVote'))
+        if(User === null){
+            alert("Login to vote")
+        }
+        else dispatch(voteQuestion(id, 'upVote'))
     }
 
     const handleDownVote = () => {
-        dispatch(voteQuestion(id, 'downVote'))
+        if(User === null){
+            alert("Login to vote")
+        }
+        else dispatch(voteQuestion(id, 'downVote'))
     }
 
     return (
@@ -84,7 +92,7 @@ const QuestionsDetails = () => {
                                                         
                                                 </div>
                                                 <div>
-                                                    <p>asked {moment(question.askedOn).fromNow()}</p>
+                                                    <p>Asked {moment(question.askedOn).fromNow()}</p>
                                                     <Link to={`/Users/${question.userId}`} className='user-link' style={{color:'#0086d8'}}>
                                                         <Avatar backgroundColor="orange" px='8px' py='5px' borderRadius="4px">{question.userPosted.charAt(0).toUpperCase()}</Avatar>
                                                         <div>
@@ -107,11 +115,11 @@ const QuestionsDetails = () => {
                                 <section className='post-ans-container'>
                                     <h3>Your Answer</h3>
                                     <form onSubmit={ (e) => { handlePostAns(e, question.answer.length) }}>
-                                        <textarea name="" id="" cols="30" rows="10" onChange={e => setAnswer(e.target.value)} ></textarea><br />
+                                        <textarea name="" id="answer-text" cols="30" rows="10" onChange={e => setAnswer(e.target.value)} ></textarea><br />
                                         <input type="Submit" className='post-ans-btn' value='Post Your Answer'/>
                                     </form>
                                     <p>
-                                        <Link to='/AskQuestion' style={{textDecoration: "none", color:"#009dff"}}> Ask your own question.</Link>
+                                        <Link to='/AskQuestion' style={{textDecoration: "none", color:"#009dff"}}>Ask your own question</Link>
                                     </p>
                                 </section>
                             </div>
