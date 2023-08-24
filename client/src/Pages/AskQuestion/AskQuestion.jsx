@@ -11,13 +11,21 @@ const AskQuestion = () => {
     const [ questionTags, setQuestionTags ] = useState('')
 
     const dispatch = useDispatch()
-    const User = useSelector((state) => (state.currentUserReducer))
     const navigate = useNavigate()
-
+    const User = useSelector((state) => (state.currentUserReducer))
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-        // console.log({ questionTitle, questionBody, questionTags})
-        dispatch(askQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name, userId: User?.result._id }, navigate))
+        if(questionTitle === ''){
+            alert("Question title cannot be empty!")
+        }
+        else if(questionBody === ''){
+            alert("Question body cannot be empty!")
+        }
+        else if (questionTags === ''){
+            alert("Please add atleast one tag")
+        }
+        else dispatch(askQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name, userId: User?.result._id }, navigate))
     }
 
     const handleEnter = (e) => {
@@ -48,7 +56,7 @@ const AskQuestion = () => {
                             <input type="text" id='ask-ques-tags'  onChange={(e) => {setQuestionTags(e.target.value.split(" "))}} placeholder='e.g. (python machine-learning)'/>
                         </label>
                     </div>
-                    <input type="submit" value='Reivew your question' className='review-btn'/>
+                    <input type="submit" value='Post Question' className='review-btn'/>
                 </form>
             </div>
         </div>
