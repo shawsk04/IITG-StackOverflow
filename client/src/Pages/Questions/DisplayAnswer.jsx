@@ -23,7 +23,6 @@ const DisplayAnswer = ({question}) => {
                         <p>{ans.answerBody}</p>
                         <div className="question-actions-user">
                             <div>
-                                {/* <button type="button">Share</button> */}
                                 {
                                     User?.result?._id === ans?.userId && (
                                         <button type='button' onClick={() => handleDelete(ans._id, question.noOfAnswers )}>Delete</button>
