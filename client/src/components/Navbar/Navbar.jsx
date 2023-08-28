@@ -39,8 +39,9 @@ const Navbar = () => {
                 <img className='logo-icon' src={logo} alt="logo" />
             </Link>
             <Link to='/Questions' className='nav-item nav-btn'>Questions</Link>
-            {/* <Link to='/' className='nav-item nav-btn'>Github</Link> */}
-            <Link to='/' className='nav-item nav-btn'>About Developer</Link>
+
+            <a href="https://github.com/shawsk04/IITG-StackOverflow" className='nav-item nav-btn' rel="noreferrer" target='_blank'>Github</a>
+            <a href="https://shawsk04.github.io/" className='nav-item nav-btn' rel="noreferrer" target='_blank'>About Developer</a>
             <form>
                 <input type="text" placeholder='Search' />
                 <img src={search} alt="search" width="18" className='search-icon'/>
