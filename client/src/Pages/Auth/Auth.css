@@ -28,6 +28,7 @@
 .auth-container-2 form{
     width: 100%;
     padding: 20px;
+    border-radius: 7px;
     background-color: white;
     display: flex;
     flex-direction: column;

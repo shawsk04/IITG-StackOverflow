@@ -3,7 +3,7 @@ import React from 'react'
 const AboutAuth = () => {
     return (
         <div className="auth-container-1">
-            <h1>Join the student developer community of IITG</h1>
+            <h1>Join the Student Developer Community of IITG</h1>
             
             <p>Collaborate and share knowledge</p>
             <p>Reach out to seniors and peers</p>
