@@ -55,6 +55,10 @@
     margin-left: 150px;
 }
 
+.logout-btn{
+    margin-left: 10px;
+}
+
 .nav-links{
     padding: 7px 13px;
     border: solid 1px blue;
