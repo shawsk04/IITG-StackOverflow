@@ -42,17 +42,17 @@ const Navbar = () => {
 
             <a href="https://github.com/shawsk04/IITG-StackOverflow" className='nav-item nav-btn' rel="noreferrer" target='_blank'>Github</a>
             <a href="https://shawsk04.github.io/" className='nav-item nav-btn' rel="noreferrer" target='_blank'>About Developer</a>
-            <form>
-                <input type="text" placeholder='Search' />
-                <img src={search} alt="search" width="18" className='search-icon'/>
-            </form>
-            {User === null ? 
-                <Link to='/Auth' className='nav-item nav-links'>Log in</Link> : 
-                <>
-                    <Avatar backgroundColor='#009dff' px="10px" py="5px" borderRadius="50%" color='white'><Link to={`/Users/${User?.result?._id}`} style={{color:"white", textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link></Avatar>
-                    <button className='nav-item nav-links' onClick={handleLogout}>Log out</button>
-                </>
-            }
+            
+            <div className='nav-profile-btn'>
+                {User === null ? 
+                    <Link to='/Auth' className='nav-item nav-links'>Log in</Link> : 
+                    <>
+                        <Avatar backgroundColor='#009dff' px="10px" py="5px" borderRadius="50%" color='white'><Link to={`/Users/${User?.result?._id}`} style={{color:"white", textDecoration:'none'}}>{User.result.name.charAt(0).toUpperCase()}</Link></Avatar>
+                        <button className='nav-item nav-links' onClick={handleLogout}>Log out</button>
+                    </>
+                }
+            </div>
+            
         </div>
     </nav>
   )

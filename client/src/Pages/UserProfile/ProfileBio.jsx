@@ -19,6 +19,7 @@ const ProfileBio = ({currentProfile}) => {
                     )
                 }
             </div>
+            <br />
             <div>
                 {
                     currentProfile?.about ? (

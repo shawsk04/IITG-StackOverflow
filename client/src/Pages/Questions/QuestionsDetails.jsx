@@ -24,11 +24,11 @@ const QuestionsDetails = () => {
     const handlePostAns = (e, answerLength) =>{
         e.preventDefault()
         if(User === null){
-            alert('Login or signup to answer question')
+            alert('Login or signup to answer question!')
             Navigate('/Auth')
         }else{
             if(Answer === ''){
-                alert('Answer field cannot be empty')
+                alert('Answer field cannot be empty!')
             } else{
                 dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name, userId: User?.result._id }))
                 document.getElementById('answer-text').value = '';

@@ -49,26 +49,10 @@
     background-color: rgb(226, 226, 226);
 }
 
-.navbar form{
-    flex-grow: 1;
-    padding: 0px 12px;
-    position: relative;
-}
-
-.navbar form input{
-    min-width: 90%;
-    margin: 0;
-    padding: 8px 10px 8px 32px;
-    font-size: 13px;
-    border: solid 1px #0000003e;
-    border-radius: 3px;
-
-}
-
-.navbar form .search-icon{
-    position: absolute;
-    left: 25px;
-    top: 8px;
+.nav-profile-btn{
+    display: flex;
+    padding-left: 100px;
+    margin-left: 150px;
 }
 
 .nav-links{
