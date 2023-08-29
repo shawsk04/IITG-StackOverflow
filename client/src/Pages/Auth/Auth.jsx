@@ -26,16 +26,22 @@ const Auth = () => {
         
         if(isSignup){
             if(!name){
-                alert("Enter a name to continue!")
+                alert("Please enter username!")
             }
-            if(!email || !password){
-                alert('Enter email and password!')
+            else if(!email){
+                alert('Please enter email!')
+            }
+            else if(!password){
+                alert("Please enter password!")
             }
             else dispatch(signup({ name, email, password }, navigate))
         }
         else{
-            if(!email || !password){
-                alert('Enter email and password!')
+            if(!email){
+                alert('Please enter email!')
+            }
+            else if(!password){
+                alert("Please enter password!")
             }
             else dispatch(login({ email, password }, navigate))
         }

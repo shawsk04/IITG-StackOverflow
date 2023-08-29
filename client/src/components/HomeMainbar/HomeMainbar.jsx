@@ -15,7 +15,7 @@ const HomeMainbar = () => {
 
     const checkAuth = () => {
       if(user === null){
-          alert("Login or Sign up first to ask a Question")
+          alert("Login or signup first to ask a Question")
           navigate('/Auth')
       }else{
           navigate('/AskQuestion')
